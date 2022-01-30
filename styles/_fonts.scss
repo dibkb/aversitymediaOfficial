@@ -1,0 +1,12 @@
+@import "colors";
+// google import
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
+
+$Inter: "Inter", sans-serif;
+$Poppins: "Poppins", sans-serif;
+
+@mixin heading {
+  font-family: $Inter;
+  font-size: max(16vw, 5rem);
+  color: $text-heading;
+}

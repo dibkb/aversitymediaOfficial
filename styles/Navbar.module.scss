@@ -1,0 +1,33 @@
+@import "container";
+@import "size";
+.container {
+}
+.container.full__nav {
+  height: 100%;
+}
+
+.header {
+  //   padding: 1rem 0;
+  height: $navbar__size;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .hamburger {
+    cursor: pointer;
+  }
+}
+.navbar__body {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  main {
+    display: flex;
+    flex-direction: column;
+    a {
+      text-decoration: none;
+    }
+  }
+  aside {
+    align-self: center;
+  }
+}
