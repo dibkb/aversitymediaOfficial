@@ -1,5 +1,6 @@
 @import "container";
 @import "size";
+@import "fonts";
 .container {
 }
 .container.full__nav {
@@ -16,6 +17,14 @@
     cursor: pointer;
   }
 }
+@keyframes navlinkHover {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: 16px;
+  }
+}
 .navbar__body {
   display: flex;
   justify-content: space-between;
@@ -23,11 +32,48 @@
   main {
     display: flex;
     flex-direction: column;
-    a {
+    justify-content: space-between;
+    div {
+      @include navlink;
+      margin: 2rem 0;
       text-decoration: none;
+      text-transform: uppercase;
+      position: relative;
+      cursor: pointer;
+      &:hover {
+        animation: 0.3s ease-in 1s 2 reverse both paused navlinkHover;
+        animation: navlinkHover 0.3s linear 1s;
+        animation: navlinkHover 0.3s;
+      }
+      .tick {
+        position: absolute;
+        visibility: hidden;
+      }
+    }
+    .active {
+      .tick {
+        position: absolute;
+        bottom: -12px;
+        left: 0;
+        visibility: visible;
+        z-index: -1;
+      }
     }
   }
   aside {
     align-self: center;
+    position: relative;
+    img {
+      z-index: 1;
+      opacity: 30%;
+    }
+    .background__glow {
+      z-index: -1;
+      position: absolute;
+      width: 224px;
+      height: 224px;
+      background: #4f2c47;
+      filter: blur(130px);
+    }
   }
 }

@@ -10,3 +10,10 @@ $Poppins: "Poppins", sans-serif;
   font-size: max(16vw, 5rem);
   color: $text-heading;
 }
+@mixin navlink {
+  font-family: $Inter;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 2.81rem;
+  color: $text-heading;
+}
