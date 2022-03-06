@@ -7,7 +7,25 @@ $Poppins: "Poppins", sans-serif;
 
 @mixin heading {
   font-family: $Inter;
-  font-size: max(16vw, 5rem);
+  font-size: max(5rem);
+  font-style: normal;
+  font-weight: bold;
+  line-height: 81px;
+  color: $text-heading;
+}
+@mixin fontBody {
+  font-family: $Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  line-height: 78px;
+  color: $text-heading;
+}
+@mixin fontBodyCTA {
+  font-family: $Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 78px;
   color: $text-heading;
 }
 @mixin navlink {

@@ -3,16 +3,17 @@
 .container {
   min-height: 600px;
   position: relative;
+  user-select: none;
   header {
     position: absolute;
     z-index: 100;
     background-color: #fff;
-    max-width: 100%;
+    width: 100%;
   }
   .body {
     position: absolute;
     z-index: 1;
     top: $navbar__size;
-    max-width: 100%;
+    width: 100%;
   }
 }

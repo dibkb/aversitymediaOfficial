@@ -1,0 +1,59 @@
+@import "fonts";
+.home {
+  margin-top: 4.5rem;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    @include heading;
+    background: transparent;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    body {
+      display: flex;
+      justify-content: space-between;
+      p {
+        @include fontBody;
+        align-self: center;
+      }
+      aside {
+        align-self: center;
+        position: relative;
+        img {
+          z-index: 1;
+        }
+        .background__glow {
+          z-index: -1;
+          position: absolute;
+          width: 224px;
+          height: 224px;
+          background: #4f2c47;
+          filter: blur(150px);
+        }
+      }
+    }
+    footer {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+.cta {
+  position: relative;
+  a {
+    @include fontBodyCTA;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+  }
+  .tick {
+    position: absolute;
+    top: 45%;
+    z-index: -1;
+  }
+}
+.arrow {
+  margin-left: 1.5rem;
+}

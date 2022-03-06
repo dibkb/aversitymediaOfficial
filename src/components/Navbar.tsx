@@ -1,11 +1,11 @@
 // library imports---------
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 // component imports ----------
 import NavLinkContainer from "./NavLinkContainer";
 // SVG import------------
 import { AversityMediaLogo } from "../../public/svg/Logo";
-import { MenuIcon } from "../../public/svg/Icons";
+import { MenuIcon, MenuIconActive } from "../../public/svg/Icons";
 // image import ------------
 import astranaut from "../../public/assets/astronaut.svg";
 // scss------------
@@ -19,9 +19,6 @@ const Navbar: React.FC = () => {
   }, [router]);
   const navbarTogle = () => {
     setShowNav((prev) => !prev);
-    if (showNav === false) {
-      console.log("rotate");
-    }
   };
   return (
     <div
@@ -32,7 +29,7 @@ const Navbar: React.FC = () => {
           <AversityMediaLogo />
         </span>
         <span className={styles.hamburger} onClick={navbarTogle}>
-          <MenuIcon />
+          {showNav ? <MenuIconActive /> : <MenuIcon />}
         </span>
       </div>
       {showNav && (
@@ -42,7 +39,11 @@ const Navbar: React.FC = () => {
           </main>
           <aside>
             <div className={styles["background__glow"]}></div>
-            <img src={astranaut.src} alt="astronaut" />
+            <img
+              src={astranaut.src}
+              alt="astronaut"
+              className={styles["astronaut"]}
+            />
           </aside>
         </div>
       )}
