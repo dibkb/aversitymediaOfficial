@@ -16,6 +16,7 @@
       justify-content: space-between;
       p {
         @include fontBody;
+        line-height: 32px;
         align-self: center;
       }
       aside {
@@ -27,8 +28,8 @@
         .background__glow {
           z-index: -1;
           position: absolute;
-          width: 224px;
-          height: 224px;
+          width: 200px;
+          height: 200px;
           background: #4f2c47;
           filter: blur(150px);
         }
@@ -56,4 +57,26 @@
 }
 .arrow {
   margin-left: 1.5rem;
+}
+// =========Responsive==============
+@media (max-width: 600px) {
+  .home {
+    margin-top: 2.5rem;
+    h1 {
+      font-size: 4.2rem;
+      line-height: 72px;
+    }
+    main {
+      body {
+        flex-direction: column;
+        p {
+          margin: 4rem 0;
+        }
+      }
+      footer {
+        align-self: center;
+        margin: 1rem;
+      }
+    }
+  }
 }
