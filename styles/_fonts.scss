@@ -13,12 +13,34 @@ $Poppins: "Poppins", sans-serif;
   line-height: 81px;
   color: $text-heading;
 }
+@mixin semiHeading {
+  font-family: $Inter;
+  font-size: 3.75rem;
+  font-style: normal;
+  font-weight: 600;
+  color: $text-heading;
+}
+@mixin headingNormal {
+  font-family: $Inter;
+  font-size: max(5rem);
+  font-style: normal;
+  font-weight: normal;
+  line-height: 81px;
+  color: $text-heading;
+}
 @mixin fontBody {
   font-family: $Inter;
   font-size: 1.125rem;
   font-style: normal;
-  line-height: 78px;
+  font-weight: 500;
   color: $text-heading;
+}
+@mixin guaranteeText {
+  font-family: $Poppins;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  color: rgba(3, 35, 33, 0.62);
 }
 @mixin fontBodyCTA {
   font-family: $Inter;

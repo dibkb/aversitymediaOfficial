@@ -1,0 +1,58 @@
+@import "fonts";
+@import "colors";
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3rem;
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4.5rem;
+    text-align: center;
+    width: 100%;
+    h2 {
+      @include semiHeading;
+      margin-bottom: 2rem;
+    }
+    p {
+      @include fontBody;
+      text-transform: uppercase;
+      margin: 1rem;
+    }
+    .email,
+    .phoneNumber {
+      text-decoration: none;
+      @include fontBody;
+      text-transform: lowercase;
+      transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+      margin: 1rem;
+      &:hover {
+        transform: scale(1.1);
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+    .instagram {
+      transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+      &:hover {
+        transform: scale(1.1);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 699px) {
+  .contactContainer {
+    section {
+      h2 {
+        font-size: 3.6rem;
+      }
+      p,
+      a {
+      }
+    }
+  }
+}

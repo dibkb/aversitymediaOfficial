@@ -3,6 +3,7 @@ import React from "react";
 // image import ------------
 import astranaut from "../public/assets/astronaut.svg";
 import { Arrow, Tick } from "../public/assets/Icons";
+import CtaText from "../src/components/CtaText";
 // scss import-----------------------
 import styles from "../styles/Home.module.scss";
 const Home: React.FC = () => {
@@ -24,17 +25,7 @@ const Home: React.FC = () => {
             />
           </aside>
         </body>
-        <footer>
-          <div className={styles["cta"]}>
-            <Link href="/getstarted">Let&apos;s Get Started</Link>
-            <pre className={styles["tick"]}>
-              <Tick />
-            </pre>
-          </div>
-          <pre className={styles["arrow"]}>
-            <Arrow />
-          </pre>
-        </footer>
+        <CtaText arrow={true} tick={true} text="Let's Get Started" />
       </main>
     </div>
   );

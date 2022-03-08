@@ -1,7 +1,6 @@
 import React from "react";
-
 const Getstarted: React.FC = () => {
-  return <div>getstarted</div>;
+  return <>Get Started</>;
 };
 
 export default Getstarted;

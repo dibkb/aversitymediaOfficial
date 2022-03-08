@@ -1,6 +1,3 @@
-export interface PageUrl {
-  pageurl: "" | "getstarted" | "services" | "work" | "workflow" | "contact";
-}
 export type pageurl =
   | ""
   | "getstarted"
@@ -11,4 +8,9 @@ export type pageurl =
 export interface NavLinkContainerProps {
   setShowNav: (value: boolean) => void;
   pageUrl: string;
+}
+export interface CtaTextProps {
+  arrow: boolean;
+  tick: boolean;
+  text: string;
 }

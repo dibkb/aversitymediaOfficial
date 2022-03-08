@@ -34,29 +34,32 @@
         }
       }
     }
-    footer {
-      display: flex;
-      align-items: center;
+  }
+}
+// ===============================used in component=============
+.textContainer {
+  display: flex;
+  align-items: center;
+  .cta {
+    position: relative;
+    a {
+      @include fontBodyCTA;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+    }
+    .tick {
+      position: absolute;
+      top: 45%;
+      right: 1%;
+      z-index: -1;
     }
   }
-}
-.cta {
-  position: relative;
-  a {
-    @include fontBodyCTA;
-    text-decoration: none;
-    position: relative;
-    z-index: 1;
-  }
-  .tick {
-    position: absolute;
-    top: 45%;
-    z-index: -1;
+  .arrow {
+    margin-left: 1.2rem;
   }
 }
-.arrow {
-  margin-left: 1.5rem;
-}
+
 // =========Responsive==============
 @media (max-width: 600px) {
   .home {

@@ -1,0 +1,58 @@
+@import "fonts";
+@import "colors";
+.getStartedContainer {
+  display: flex;
+  flex-direction: column;
+  h3 {
+    @include headingNormal;
+  }
+  footer {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tagline {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 9rem 0 3rem 0;
+    //  border: 1px solid red;
+    p {
+      padding: 0.5rem 0;
+      margin-left: 1rem;
+      @include guaranteeText;
+    }
+  }
+}
+.body {
+  margin: 6rem auto;
+  min-width: 60%;
+  max-width: 890px;
+  section {
+    min-height: 450px;
+    margin-bottom: 6rem;
+    display: flex;
+    .left {
+      height: 430px;
+      align-self: center;
+      width: 4rem;
+      border-top: 3px solid $lime;
+      border-bottom: 3px solid $lime;
+      border-left: 3px solid $lime;
+      margin-right: 4.5rem;
+    }
+    .right {
+      margin-left: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      p {
+        @include fontBody;
+        line-height: normal;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
