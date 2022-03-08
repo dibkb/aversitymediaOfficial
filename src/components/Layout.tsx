@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import components----------
 import Navbar from "./Navbar";
 // import scss-------------
@@ -8,12 +8,15 @@ interface Props {
   children: React.ReactNode;
 }
 const Layout: React.FC<Props> = (props) => {
+  const [showNav, setShowNav] = useState<Boolean>(false);
   return (
     <div className={styles.container}>
-      <header>
-        <Navbar />
-      </header>
-      <div className={styles.body}>{props.children}</div>
+      <div className={styles.containerLayout}>
+        <header>
+          <Navbar showNav={showNav} setShowNav={setShowNav} />
+        </header>
+        {!showNav && <div className={styles.body}>{props.children}</div>}
+      </div>
     </div>
   );
 };

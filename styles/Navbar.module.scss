@@ -1,13 +1,8 @@
-@import "container";
 @import "size";
 @import "fonts";
-.container {
+.navbar {
+  width: 100% !important;
 }
-.container.full__nav {
-  height: 100%;
-  // background: transparent;
-}
-
 .header {
   height: $navbar__size;
   display: flex;
@@ -36,7 +31,7 @@
     justify-content: space-between;
     div {
       @include navlink;
-      margin: 2rem 0;
+      padding: 2rem 0;
       text-decoration: none;
       text-transform: uppercase;
       position: relative;
@@ -54,7 +49,7 @@
     .active {
       .tick {
         position: absolute;
-        bottom: -12px;
+        bottom: 1.25rem;
         left: 0;
         visibility: visible;
         z-index: -1;
@@ -69,34 +64,30 @@
       opacity: 30%;
     }
     .background__glow {
-      z-index: -1;
-      position: absolute;
-      width: 224px;
-      height: 224px;
-      background: #4f2c47;
-      filter: blur(150px);
+      // z-index: -1;
+      // position: absolute;
+      // width: 139px;
+      // height: 139px;
+      // background: #8e2a77;
+      // filter: blur(147px);
     }
   }
-  // responsive design---------------------
-  @media (max-width: 500px) {
-    flex-direction: column;
+}
+@media (max-width: 701px) {
+  .navbar__body {
+    // flex-direction: column;
+    position: relative;
     main {
+      position: absolute;
       div {
-        font-size: 2rem;
+        font-size: 9vw;
       }
     }
     aside {
+      z-index: -100;
       position: absolute;
-      top: 30%;
-      left: 30%;
-    }
-  }
-  @media (min-width: 501px) and (max-width: 765px) {
-    flex-direction: column;
-    aside {
-      position: absolute;
-      top: 30%;
-      left: 60%;
+      top: 100%;
+      left: 10%;
     }
   }
 }

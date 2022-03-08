@@ -10,20 +10,21 @@ import { MenuIcon, MenuIconActive } from "../../public/svg/Icons";
 import astranaut from "../../public/assets/astronaut.svg";
 // scss------------
 import styles from "../../styles/Navbar.module.scss";
-const Navbar: React.FC = () => {
+interface Props {
+  showNav: Boolean;
+  setShowNav: (value: any) => void;
+}
+const Navbar: React.FC<Props> = ({ showNav, setShowNav }) => {
   const router = useRouter();
-  const [showNav, setShowNav] = useState<Boolean>(false);
   const [pageUrl, setPageUrl] = useState<string>("");
   useEffect(() => {
     if (router) setPageUrl(router.pathname.split("/")[1]);
   }, [router]);
   const navbarTogle = () => {
-    setShowNav((prev) => !prev);
+    setShowNav((prev: boolean) => !prev);
   };
   return (
-    <div
-      className={`${styles.container} ${showNav ? styles["full__nav"] : null}`}
-    >
+    <div className={styles.navbar}>
       <div className={styles.header}>
         <span className={styles.logo}>
           <AversityMediaLogo />

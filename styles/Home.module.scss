@@ -6,7 +6,6 @@
   flex-direction: column;
   h1 {
     @include heading;
-    background: transparent;
   }
   main {
     display: flex;
@@ -26,12 +25,12 @@
           z-index: 1;
         }
         .background__glow {
-          z-index: -1;
-          position: absolute;
-          width: 200px;
-          height: 200px;
-          background: #4f2c47;
-          filter: blur(150px);
+          // z-index: -1;
+          // position: absolute;
+          // width: 113px;
+          // height: 113px;
+          // background: #261b24;
+          // filter: blur(239px);
         }
       }
     }
@@ -63,8 +62,8 @@
   .home {
     margin-top: 2.5rem;
     h1 {
-      font-size: 4.2rem;
-      line-height: 72px;
+      font-size: 18vw;
+      line-height: 18vw;
     }
     main {
       body {
