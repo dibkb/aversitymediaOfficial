@@ -8,6 +8,7 @@
     display: block;
     width: 0.45rem;
     background-color: transparent;
+    cursor: pointer;
   }
   &::-webkit-scrollbar-track {
     background-color: transparent;
@@ -20,5 +21,16 @@
   }
   &::-webkit-scrollbar-thumb:hover {
     background-color: $aqua;
+    cursor: pointer;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    &::-webkit-scrollbar {
+      display: block;
+      width: 0.21rem;
+      background-color: transparent;
+      cursor: pointer;
+    }
   }
 }

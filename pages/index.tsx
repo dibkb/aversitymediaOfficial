@@ -25,7 +25,9 @@ const Home: React.FC = () => {
             />
           </aside>
         </body>
-        <CtaText arrow={true} tick={true} text="Let's Get Started" />
+        <footer>
+          <CtaText arrow={true} tick={true} text="Let's Get Started" />
+        </footer>
       </main>
     </div>
   );

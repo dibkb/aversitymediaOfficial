@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import Work from "../src/components/estimatecost/Work";
+import styles from "../styles/EstimateCost.module.scss";
 const Getstarted: React.FC = () => {
-  return <>Get Started</>;
+  const [slider, setSlider] = useState<number>(0);
+  return (
+    <div className={styles["EC-container"]}>{slider === 0 && <Work />}</div>
+  );
 };
 
 export default Getstarted;

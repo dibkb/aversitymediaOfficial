@@ -28,10 +28,24 @@ $Poppins: "Poppins", sans-serif;
   line-height: 81px;
   color: $text-heading;
 }
+@mixin titleText {
+  font-family: $Inter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  color: $purple-dark;
+}
 @mixin fontBody {
   font-family: $Inter;
   font-size: 1.125rem;
   font-style: normal;
+  font-weight: 500;
+  color: $text-heading;
+}
+@mixin fontBodyItalic {
+  font-family: $Inter;
+  font-size: 1.125rem;
+  font-style: italic;
   font-weight: 500;
   color: $text-heading;
 }
@@ -56,4 +70,11 @@ $Poppins: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 2.81rem;
   color: $text-heading;
+}
+@mixin formWarning {
+  font-family: $Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: $formCaution;
 }
