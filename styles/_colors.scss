@@ -8,7 +8,14 @@ $purple-dark: #200e26;
 $lime: #b8de20;
 $aqua: #185853;
 $formCaution: #637775;
+$warningRed: #e02828;
 
 // gradients
 $lime-gradient: linear-gradient(268.96deg, #b8de20 4.24%, #e4ff79 92.28%);
-$green-gradient: linear-gradient(289.97deg, #006f5b 2.37%, #000000 100%); ;
+$green-gradient: linear-gradient(289.97deg, #006f5b 2.37%, #000000 100%);
+
+// form
+$formBorderDefault: rgba(3, 35, 33, 0.12);
+$formBorderFocus: rgba(3, 35, 33, 0.81);
+$formPlaceholder: rgba(31, 31, 31, 0.36);
+$formPrivacymessage: rgba(3, 35, 33, 0.62); ;

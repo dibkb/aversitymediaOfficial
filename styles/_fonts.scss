@@ -64,6 +64,13 @@ $Poppins: "Poppins", sans-serif;
   line-height: 78px;
   color: $text-heading;
 }
+@mixin fontBodyCTASecondary {
+  font-family: $Inter;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: rgba(3, 35, 33, 0.62);
+}
 @mixin navlink {
   font-family: $Inter;
   font-style: italic;

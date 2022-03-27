@@ -40,9 +40,6 @@ const Work: React.FC = () => {
       <a href="#" className={styles["know-more-link"]}>
         Know about our services in detail
       </a>
-      <div className={styles["arrow"]}>
-        <RoundButton />
-      </div>
     </div>
   );
 };

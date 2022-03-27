@@ -5,6 +5,7 @@ export type pageurl =
   | "work"
   | "workflow"
   | "contact";
+export type formBudget = "category-1" | "category-2" | "category-3";
 export interface NavLinkContainerProps {
   setShowNav: (value: boolean) => void;
   pageUrl: string;
@@ -14,3 +15,7 @@ export interface CtaTextProps {
   tick: boolean;
   text: string;
 }
+export type budgetInfoType = {
+  id: formBudget;
+  price: string;
+}[];

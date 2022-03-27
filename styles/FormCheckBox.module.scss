@@ -1,0 +1,16 @@
+@import "colors";
+.boxEmptyContainer {
+  height: 3.75rem;
+  width: 3.75rem;
+  border: 1px solid #032321;
+}
+.boxTickContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 3.75rem;
+  width: 3.75rem;
+  background: linear-gradient(289.97deg, #006f5b 2.37%, #004a3d 100%);
+  border: 1.6px solid #b8de20;
+}
