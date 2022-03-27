@@ -3,6 +3,7 @@ import { Lock } from "../../../public/svg/Icons";
 // ------------styles-----------
 import styles from "../../../styles/ContactForm.module.scss";
 import CtaText from "../CtaText";
+import Contactdirectly from "./ContactFormComponents/Contactdirectly";
 import Formemail from "./ContactFormComponents/Formemail";
 import Formname from "./ContactFormComponents/Formname";
 import Fornumber from "./ContactFormComponents/Formnumber";
@@ -14,7 +15,7 @@ const ContactForm: React.FC = () => {
         <Formname />
         <Formemail />
         <Fornumber />
-        <Formname />
+        <Contactdirectly />
       </main>
       <div className={styles["caution-container"]}>
         <pre>“crazyswine@@mail.com” is not a VALID email address.</pre>
@@ -24,12 +25,6 @@ const ContactForm: React.FC = () => {
       <div className={styles["privacy-assurance"]}>
         <Lock />
         <pre>We won’t share your personal information with anyone.</pre>
-      </div>
-      <a href="#" className={styles["back-button"]}>
-        Go Back
-      </a>
-      <div className={styles["submit-container"]}>
-        <CtaText arrow={false} tick={true} text="Submit Response" />
       </div>
     </div>
   );

@@ -38,6 +38,7 @@
 }
 // ===============================used in component=============
 .textContainer {
+  user-select: none;
   display: flex;
   align-items: center;
   .cta {

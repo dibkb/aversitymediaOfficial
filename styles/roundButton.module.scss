@@ -1,10 +1,5 @@
 .roundButton-megaContainer {
   display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-  &:hover {
-    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  }
 }
 .roundButton-Container {
   position: relative;
@@ -13,6 +8,13 @@
     position: absolute;
     right: calc(100% - 45px);
     top: 18px;
+  }
+  .arrow-invisible {
+    visibility: hidden;
+    position: absolute;
+    left: calc(100% + 45px);
+    top: 18px;
+    transform: rotate(0.5turn);
   }
 }
 .circle-Container {

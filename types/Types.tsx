@@ -15,6 +15,9 @@ export interface CtaTextProps {
   tick: boolean;
   text: string;
 }
+export interface IconProp {
+  fill: string | null;
+}
 export type budgetInfoType = {
   id: formBudget;
   price: string;

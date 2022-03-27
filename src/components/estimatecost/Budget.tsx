@@ -30,9 +30,6 @@ const Budget: React.FC = () => {
         </pre>
         <p>Hosting Price and Domain Price is not included.</p>
       </div>
-      <a href="#" className={styles["backBtn"]}>
-        Go Back
-      </a>
     </div>
   );
 };

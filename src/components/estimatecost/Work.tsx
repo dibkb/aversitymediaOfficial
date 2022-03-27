@@ -5,34 +5,39 @@ import UIUXHover from "../../../public/assets/UIUX-hover.svg";
 import Dev from "../../../public/assets/Dev.svg";
 import DevHover from "../../../public/assets/Dev-hover.svg";
 import styles from "../../../styles/EstimateCost.module.scss";
-import RoundButton from "../roundButton";
 const Work: React.FC = () => {
-  const [uiuxHovered, setUiUxHovered] = useState<boolean>(false);
-  const toggleUiUxHover: React.MouseEventHandler<HTMLDivElement> = () =>
-    setUiUxHovered(!uiuxHovered);
-  const [devHovered, setDevHovered] = useState<boolean>(false);
-  const toggleDevHover: React.MouseEventHandler<HTMLDivElement> = () =>
-    setDevHovered(!devHovered);
+  const [uiuxActive, setUiUxActive] = useState<boolean>(false);
+  const [devActive, setDevActive] = useState<boolean>(false);
+  const selectUi = () => {
+    setUiUxActive(true);
+    setDevActive(false);
+  };
+  const selectDev = () => {
+    setUiUxActive(false);
+    setDevActive(true);
+  };
   return (
     <div className={styles["work-sub-Container"]}>
       <h1>I am here for</h1>
       <main>
-        <section>
-          <div
-            className={styles["image-Container"]}
-            onMouseEnter={toggleUiUxHover}
-            onMouseLeave={toggleUiUxHover}
-          >
+        <section
+          className={uiuxActive ? styles["--active"] : ""}
+          onClick={selectUi}
+        >
+          <div className={styles["image-Container"]}>
             <img
-              src={uiuxHovered ? UIUXHover.src : UIUX.src}
+              src={uiuxActive ? UIUXHover.src : UIUX.src}
               alt="uiux-normal"
             />
           </div>
           <pre>UI/UX Design</pre>
         </section>
-        <section onMouseEnter={toggleDevHover} onMouseLeave={toggleDevHover}>
+        <section
+          className={devActive ? styles["--active"] : ""}
+          onClick={selectDev}
+        >
           <div className={styles["image-Container"]}>
-            <img src={devHovered ? DevHover.src : Dev.src} alt="dev-normal" />
+            <img src={devActive ? DevHover.src : Dev.src} alt="dev-normal" />
           </div>
           <pre>UI/UX and Development</pre>
         </section>

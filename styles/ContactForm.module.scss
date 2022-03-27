@@ -58,7 +58,9 @@
 }
 // -------------------ContactFormCompionents--------------------------
 .formContainer,
-.formContainer---focus {
+.formContainer---normal,
+.formContainer---focus,
+.formContainer---error {
   width: 100%;
   border: 1px solid $formBorderDefault;
   padding: 1rem 2rem;
@@ -111,10 +113,37 @@
       -moz-appearance: textfield;
     }
   }
-  &:hover {
-    border: 1px solid $formBorderFocus;
-  }
+  // &:hover {
+  //   border: 1px solid $formBorderFocus;
+  // }
 }
 .formContainer---focus {
   border: 1px solid $formBorderFocus;
+}
+.formContainer---error {
+  border: 1px solid $warningRed;
+  .label-text {
+    color: $warningRed !important;
+  }
+}
+// ===================contact Directly===================
+.contactDirectly--container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  pre {
+    @include fontBody;
+    color: #637775;
+  }
+  a {
+    text-decoration: none;
+    @include fontBody;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid transparent;
+    &:hover {
+      border-bottom: 2px solid $lime;
+    }
+  }
 }
