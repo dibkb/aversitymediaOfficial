@@ -18,7 +18,31 @@ export interface CtaTextProps {
 export interface IconProp {
   fill: string | null;
 }
+export interface nameInputProp {
+  nameInput: string;
+  setNameInput: (input: string) => void;
+  setNameError: (input: boolean) => void;
+}
+export interface emailInputProp {
+  emailInput: string;
+  setEmailInput: (input: string) => void;
+  setEmailError: (input: boolean) => void;
+}
+export interface numberInputProp {
+  numberInput: number | undefined;
+  setNumberInput: (input: number) => void;
+  setNumberError: (input: boolean) => void;
+}
 export type budgetInfoType = {
   id: formBudget;
   price: string;
 }[];
+export type formContext = {
+  work: "designOnly | designAndDev" | null;
+  budget: formBudget | null;
+  contact: {
+    name: string | null;
+    email: string | null;
+    number: number | null;
+  };
+};

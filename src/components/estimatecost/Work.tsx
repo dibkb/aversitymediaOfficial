@@ -1,21 +1,31 @@
-import React, { useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 // import images
 import UIUX from "../../../public/assets/UIUX.svg";
 import UIUXHover from "../../../public/assets/UIUX-hover.svg";
 import Dev from "../../../public/assets/Dev.svg";
 import DevHover from "../../../public/assets/Dev-hover.svg";
 import styles from "../../../styles/EstimateCost.module.scss";
+import FormContext from "../../../context/context";
 const Work: React.FC = () => {
+  const formContext = useContext(FormContext);
   const [uiuxActive, setUiUxActive] = useState<boolean>(false);
   const [devActive, setDevActive] = useState<boolean>(false);
-  const selectUi = () => {
+  const selectUi = useCallback(() => {
     setUiUxActive(true);
     setDevActive(false);
-  };
-  const selectDev = () => {
+    formContext.setFormValue({
+      ...formContext.formValue,
+      work: "designOnly",
+    });
+  }, [setUiUxActive, setDevActive, formContext]);
+  const selectDev = useCallback(() => {
     setUiUxActive(false);
     setDevActive(true);
-  };
+    formContext.setFormValue({
+      ...formContext.formValue,
+      work: "designAndDev",
+    });
+  }, [setUiUxActive, setDevActive, formContext]);
   return (
     <div className={styles["work-sub-Container"]}>
       <h1>I am here for</h1>

@@ -2,26 +2,32 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Email, WarningRound } from "../../../../public/svg/Icons";
 // styles-------------
 import styles from "../../../../styles/ContactForm.module.scss";
+import { emailInputProp } from "../../../../types/Types";
 import { validateEmail } from "../../../../utils/utils";
-const Formemail: React.FC = () => {
+const Formemail: React.FC<emailInputProp> = ({
+  emailInput,
+  setEmailError,
+  setEmailInput,
+}) => {
   const [state, setState] = useState<"normal" | "focus" | "error">("normal");
-  const [emailInput, setEmailInput] = useState<string>("");
   useEffect(() => {
     if (emailInput.length > 0 && !validateEmail(emailInput)) {
       setState("error");
+      setEmailError(true);
     } else if (emailInput.length !== 0) {
       setState("focus");
+      setEmailError(false);
     } else {
       setState("normal");
+      setEmailError(false);
     }
-  }, [emailInput]);
+  }, [emailInput, setEmailError]);
   const onFocus = useCallback(() => {
     if (state !== "error") {
       setState("focus");
     }
   }, [state]);
   const onBlur = useCallback(() => {
-    console.log("first");
     if (state !== "error") {
       setState("normal");
     }

@@ -2,8 +2,12 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Whatsapp, WarningRound } from "../../../../public/svg/Icons";
 // styles-------------
 import styles from "../../../../styles/ContactForm.module.scss";
-const Fornumber: React.FC = () => {
-  const [numberinput, setNumberInput] = useState<number>();
+import { numberInputProp } from "../../../../types/Types";
+const Fornumber: React.FC<numberInputProp> = ({
+  numberInput,
+  setNumberError,
+  setNumberInput,
+}) => {
   const [state, setState] = useState<"normal" | "focus" | "error">("normal");
   const updateInput = (input: any) => {
     if (String(input).length > 10) {
@@ -14,15 +18,18 @@ const Fornumber: React.FC = () => {
     }
   };
   useEffect(() => {
-    if (numberinput !== undefined)
-      if (String(numberinput).length > 0 && String(numberinput)?.length < 10) {
+    if (numberInput !== undefined)
+      if (String(numberInput).length > 0 && String(numberInput)?.length < 10) {
         setState("error");
-      } else if (String(numberinput).length !== 0) {
+        setNumberError(true);
+      } else if (String(numberInput).length !== 0) {
         setState("focus");
+        setNumberError(false);
       } else {
         setState("normal");
+        setNumberError(false);
       }
-  }, [numberinput]);
+  }, [numberInput, setNumberError]);
   const onFocus = () => {
     if (state !== "error") {
       setState("focus");
@@ -52,7 +59,7 @@ const Fornumber: React.FC = () => {
         <input
           type="number"
           placeholder="0123-456-789"
-          value={numberinput}
+          value={numberInput}
           maxLength={10}
           onChange={(e) => updateInput(e.target.value)}
           onFocus={onFocus}

@@ -1,26 +1,33 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { User, WarningRound } from "../../../../public/svg/Icons";
 // styles-------------
 import styles from "../../../../styles/ContactForm.module.scss";
-const Formname: React.FC = () => {
+import { nameInputProp } from "../../../../types/Types";
+import { validateName } from "../../../../utils/utils";
+const Formname: React.FC<nameInputProp> = ({
+  nameInput,
+  setNameError,
+  setNameInput,
+}) => {
   const [state, setState] = useState<"normal" | "focus" | "error">("normal");
-  const [nameInput, setNameInput] = useState<string>("");
   useEffect(() => {
-    if (nameInput.length > 0) {
+    if (nameInput.length > 0 && validateName(nameInput)) {
       setState("error");
+      setNameError(true);
     } else if (nameInput.length !== 0) {
       setState("focus");
+      setNameError(false);
     } else {
       setState("normal");
+      setNameError(false);
     }
-  }, [nameInput]);
+  }, [nameInput, setNameError]);
   const onFocus = useCallback(() => {
     if (state !== "error") {
       setState("focus");
     }
   }, [state]);
   const onBlur = useCallback(() => {
-    console.log("first");
     if (state !== "error") {
       setState("normal");
     }
