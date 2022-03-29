@@ -5,7 +5,7 @@ export type pageurl =
   | "work"
   | "workflow"
   | "contact";
-export type formBudget = "category-1" | "category-2" | "category-3";
+export type formBudget = "category-1" | "category-2" | "category-3" | null;
 export interface NavLinkContainerProps {
   setShowNav: (value: boolean) => void;
   pageUrl: string;

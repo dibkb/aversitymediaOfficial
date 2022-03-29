@@ -5,7 +5,7 @@ import styles from "../styles/GetStarted.module.scss";
 const workflow: React.FC = () => {
   return (
     <div className={styles["getStartedContainer"]}>
-      <h3>Our Workflow Process</h3>
+      <h3>Our Project Workflow</h3>
       <main className={styles["body"]}>
         <section>
           <aside className={styles["left"]}></aside>

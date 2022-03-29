@@ -5,6 +5,7 @@
   flex-direction: column;
   h3 {
     @include headingNormal;
+    font-weight: 500;
   }
   footer {
     align-self: center;
@@ -18,7 +19,6 @@
     align-items: center;
     justify-content: center;
     margin: 9rem 0 3rem 0;
-    //  border: 1px solid red;
     p {
       padding: 0.5rem 0;
       margin-left: 1rem;
@@ -53,6 +53,40 @@
         line-height: normal;
         text-transform: uppercase;
       }
+    }
+  }
+}
+// =========Responsive==============
+@media (max-width: 600px) {
+  .getStartedContainer {
+    h3 {
+      font-size: $headingFontSizeMobile;
+    }
+  }
+  .body {
+    section:first-child {
+      margin-bottom: 9rem;
+    }
+    section:last-child {
+      margin-bottom: 0rem;
+    }
+    .left {
+      // border: 1px solid red;
+      margin-right: 1.5rem !important;
+    }
+    .right {
+      .points {
+        line-height: 40px;
+      }
+    }
+  }
+  .tagline {
+    pre {
+      margin: 0;
+    }
+    p {
+      margin-left: 0.4rem !important;
+      font-size: 2.6vw !important;
     }
   }
 }

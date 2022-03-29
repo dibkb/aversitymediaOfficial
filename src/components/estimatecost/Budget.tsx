@@ -1,15 +1,24 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Warning } from "../../../public/svg/Icons";
 //---------------------  styles --------------------
 import styles from "../../../styles/EstimateCost.module.scss";
-import { formBudget } from "../../../types/Types";
+import { budgetInfoType, formBudget } from "../../../types/Types";
 import { CheckBoxEmpty, CheckBoxTick } from "../CheckBoxes";
-import { budgetInfo } from "./Budgetinfo";
+import { budgetInfoDesign, budgetInfoDesignAndDev } from "./Budgetinfo";
 import FormContext from "../../../context/context";
 export const Budget: React.FC = () => {
   const formContext = useContext(FormContext);
-  const [budget, setBudget] = useState<formBudget>("category-2");
+  const [budgetInfo, setBudgetInfo] = useState<budgetInfoType>();
+  const [budget, setBudget] = useState<formBudget>();
   const formValue = useContext(FormContext);
+  useEffect(() => {
+    if (formValue.formValue.work === "designOnly") {
+      setBudgetInfo(budgetInfoDesign);
+    }
+    if (formValue.formValue.work === "designAndDev") {
+      setBudgetInfo(budgetInfoDesignAndDev);
+    }
+  }, [formValue]);
   const selectBudgetHandler = (id: formBudget) => {
     setBudget(id);
     formContext.setFormValue({
@@ -21,18 +30,25 @@ export const Budget: React.FC = () => {
     <div className={styles["budget-subContainer"]}>
       <h1>My budget is</h1>
       <main>
-        {budgetInfo.map((item) => {
-          return (
-            <div key={item.id} onClick={() => selectBudgetHandler(item.id)}>
-              <span>
-                {budget === item.id ? <CheckBoxTick /> : <CheckBoxEmpty />}
-              </span>
-              <pre>{item.price}</pre>
-            </div>
-          );
-        })}
+        {budgetInfo &&
+          budgetInfo.map((item) => {
+            return (
+              <div key={item.id} onClick={() => selectBudgetHandler(item.id)}>
+                <span>
+                  {budget === item.id ? <CheckBoxTick /> : <CheckBoxEmpty />}
+                </span>
+                <pre>{item.price}</pre>
+              </div>
+            );
+          })}
       </main>
-      <div className={styles["caution"]}>
+      <div
+        className={
+          budgetInfo === budgetInfoDesign
+            ? styles["caution--invisible"]
+            : styles["caution"]
+        }
+      >
         <pre>
           <Warning />
         </pre>

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styles from "../../styles/roundButton.module.scss";
 import { ArrowNormal, ArrowHover } from "../../public/svg/Arrow";
+export type RoundButtonProp = {
+  marginBottom: React.CSSProperties | null;
+};
 const RoundButton: React.FC = () => {
   const [hovered, setHovered] = useState(false);
   return (

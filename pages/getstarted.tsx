@@ -16,6 +16,7 @@ const Getstarted: React.FC = () => {
     setSlider((prev) => prev - 1);
   };
   const [formValue, setFormValue] = useState(formDefaultContext);
+  console.log(formValue.work);
   return (
     <FormContext.Provider
       value={{
@@ -40,16 +41,35 @@ const Getstarted: React.FC = () => {
             </a>
           )}
           {slider === 0 && <span className={styles["buffer"]}>buffer</span>}
+          {/* ================== next button =================== */}
           {slider === 2 && (
             <div className={styles["submit-container"]}>
               <CtaText arrow={false} tick={true} text="Submit Response" />
             </div>
           )}
-          {slider !== 2 && (
-            <div className={styles["arrow"]} onClick={incrementSlide}>
+          {slider === 1 && (
+            <div
+              className={styles["roundButtonContainer"]}
+              onClick={incrementSlide}
+            >
               <RoundButton />
             </div>
           )}
+          {slider === 0 && (
+            <>
+              <div
+                className={
+                  formValue.work !== null
+                    ? styles["roundButtonContainer"]
+                    : styles["roundButtonContainer--disable "]
+                }
+                onClick={incrementSlide}
+              >
+                <RoundButton />
+              </div>
+            </>
+          )}
+          {/* ================== next button =================== */}
         </footer>
       </div>
     </FormContext.Provider>
