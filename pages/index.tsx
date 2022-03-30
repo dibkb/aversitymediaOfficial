@@ -2,14 +2,31 @@ import Link from "next/link";
 import React from "react";
 // image import ------------
 import astranaut from "../public/assets/astronaut.svg";
-import { Arrow, Tick } from "../public/assets/Icons";
 import CtaText from "../src/components/CtaText";
+import Typewriter from "typewriter-effect";
 // scss import-----------------------
 import styles from "../styles/Home.module.scss";
 const Home: React.FC = () => {
   return (
     <div className={styles["home"]}>
-      <h1>We deliver premium webapps at affordable rates.</h1>
+      <h1>
+        <Typewriter
+          options={{ loop: true }}
+          onInit={(typewriter) => {
+            typewriter
+              .start()
+              .typeString("We deliver premium websites at affordable an rate.")
+              .pauseFor(900)
+              .deleteChars(39)
+              .typeString("performance.")
+              .pauseFor(900)
+              .deleteChars(12)
+              .typeString("results.")
+              .pauseFor(900)
+              .deleteChars(8);
+          }}
+        />
+      </h1>
       <main>
         <body>
           <p>
