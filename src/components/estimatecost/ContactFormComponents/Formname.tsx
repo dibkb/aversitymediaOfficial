@@ -1,4 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
+import FormContext from "../../../../context/context";
 import { User, WarningRound } from "../../../../public/svg/Icons";
 // styles-------------
 import styles from "../../../../styles/ContactForm.module.scss";
@@ -9,6 +10,7 @@ const Formname: React.FC<nameInputProp> = ({
   setNameError,
   setNameInput,
 }) => {
+  const formContext: any = useContext(FormContext);
   const [state, setState] = useState<"normal" | "focus" | "error">("normal");
   useEffect(() => {
     if (nameInput.length > 0 && validateName(nameInput)) {
@@ -22,6 +24,15 @@ const Formname: React.FC<nameInputProp> = ({
       setNameError(false);
     }
   }, [nameInput, setNameError]);
+  useEffect(() => {
+    formContext.setFormValue({
+      ...formContext.formValue,
+      contact: {
+        ...formContext.formValue.contact,
+        name: nameInput,
+      },
+    });
+  }, [nameInput]);
   const onFocus = useCallback(() => {
     if (state !== "error") {
       setState("focus");

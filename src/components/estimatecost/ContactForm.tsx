@@ -6,10 +6,22 @@ import Contactdirectly from "./ContactFormComponents/Contactdirectly";
 import Formemail from "./ContactFormComponents/Formemail";
 import Formname from "./ContactFormComponents/Formname";
 import Fornumber from "./ContactFormComponents/Formnumber";
-const ContactForm: React.FC = () => {
-  const [nameError, setNameError] = useState<boolean>(false);
-  const [emailError, setEmailError] = useState<boolean>(false);
-  const [numberError, setNumberError] = useState<boolean>(false);
+export type ContactFormProps = {
+  nameError: boolean;
+  emailError: boolean;
+  numberError: boolean;
+  setNameError: (input: boolean) => void;
+  setEmailError: (input: boolean) => void;
+  setNumberError: (input: boolean) => void;
+};
+const ContactForm: React.FC<ContactFormProps> = ({
+  nameError,
+  emailError,
+  numberError,
+  setNameError,
+  setEmailError,
+  setNumberError,
+}) => {
   // ================ Input =====================
   const [nameInput, setNameInput] = useState<string>("");
   const [emailInput, setEmailInput] = useState<string>("");

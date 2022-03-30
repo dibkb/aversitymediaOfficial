@@ -46,3 +46,7 @@ export type formContext = {
     number: number | null;
   };
 };
+export type formContextRoot = {
+  formValue: formContext | null;
+  setFormValue: () => void | null;
+};

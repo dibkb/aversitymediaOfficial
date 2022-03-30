@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
+import FormContext from "../../../../context/context";
 import { Email, WarningRound } from "../../../../public/svg/Icons";
 // styles-------------
 import styles from "../../../../styles/ContactForm.module.scss";
@@ -10,6 +11,7 @@ const Formemail: React.FC<emailInputProp> = ({
   setEmailInput,
 }) => {
   const [state, setState] = useState<"normal" | "focus" | "error">("normal");
+  const formContext: any = useContext(FormContext);
   useEffect(() => {
     if (emailInput.length > 0 && !validateEmail(emailInput)) {
       setState("error");
@@ -22,6 +24,15 @@ const Formemail: React.FC<emailInputProp> = ({
       setEmailError(false);
     }
   }, [emailInput, setEmailError]);
+  useEffect(() => {
+    formContext.setFormValue({
+      ...formContext.formValue,
+      contact: {
+        ...formContext.formValue.contact,
+        email: emailInput,
+      },
+    });
+  }, [emailInput]);
   const onFocus = useCallback(() => {
     if (state !== "error") {
       setState("focus");

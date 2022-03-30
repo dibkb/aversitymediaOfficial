@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import FormContext from "../../../../context/context";
 import { Whatsapp, WarningRound } from "../../../../public/svg/Icons";
 // styles-------------
 import styles from "../../../../styles/ContactForm.module.scss";
@@ -8,6 +9,7 @@ const Fornumber: React.FC<numberInputProp> = ({
   setNumberError,
   setNumberInput,
 }) => {
+  const formContext: any = React.useContext(FormContext);
   const [state, setState] = useState<"normal" | "focus" | "error">("normal");
   const updateInput = (input: any) => {
     if (String(input).length > 10) {
@@ -30,6 +32,15 @@ const Fornumber: React.FC<numberInputProp> = ({
         setNumberError(false);
       }
   }, [numberInput, setNumberError]);
+  useEffect(() => {
+    formContext.setFormValue({
+      ...formContext.formValue,
+      contact: {
+        ...formContext.formValue.contact,
+        number: numberInput,
+      },
+    });
+  }, [numberInput]);
   const onFocus = () => {
     if (state !== "error") {
       setState("focus");
@@ -70,3 +81,6 @@ const Fornumber: React.FC<numberInputProp> = ({
   );
 };
 export default Fornumber;
+function useContext(FormContext: any): any {
+  throw new Error("Function not implemented.");
+}

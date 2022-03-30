@@ -6,19 +6,19 @@ import { budgetInfoType, formBudget } from "../../../types/Types";
 import { CheckBoxEmpty, CheckBoxTick } from "../CheckBoxes";
 import { budgetInfoDesign, budgetInfoDesignAndDev } from "./Budgetinfo";
 import FormContext from "../../../context/context";
+import { formContextRoot } from "../../../types/Types";
 export const Budget: React.FC = () => {
-  const formContext = useContext(FormContext);
+  const formContext: any = useContext(FormContext);
   const [budgetInfo, setBudgetInfo] = useState<budgetInfoType>();
   const [budget, setBudget] = useState<formBudget>();
-  const formValue = useContext(FormContext);
   useEffect(() => {
-    if (formValue.formValue.work === "designOnly") {
+    if (formContext.formValue.work === "designOnly") {
       setBudgetInfo(budgetInfoDesign);
     }
-    if (formValue.formValue.work === "designAndDev") {
+    if (formContext.formValue.work === "designAndDev") {
       setBudgetInfo(budgetInfoDesignAndDev);
     }
-  }, [formValue]);
+  }, [formContext]);
   const selectBudgetHandler = (id: formBudget) => {
     setBudget(id);
     formContext.setFormValue({
