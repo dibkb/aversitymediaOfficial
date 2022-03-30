@@ -11,16 +11,18 @@ const Home: React.FC = () => {
     <div className={styles["home"]}>
       <h1>
         <Typewriter
-          options={{ loop: true }}
+          options={{ loop: true, deleteSpeed: 3 }}
           onInit={(typewriter) => {
             typewriter
               .start()
-              .typeString("We deliver premium websites at affordable an rate.")
+              .typeString("We deliver premium webapps at an affordable rate.")
               .pauseFor(900)
-              .deleteChars(39)
+              .deleteChars(38)
+              .pauseFor(900)
               .typeString("performance.")
               .pauseFor(900)
               .deleteChars(12)
+              .pauseFor(900)
               .typeString("results.")
               .pauseFor(900)
               .deleteChars(8);

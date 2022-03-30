@@ -9,7 +9,7 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
-    word-wrap: break-word;
+    user-select: none;
   }
   main {
     display: flex;
@@ -74,7 +74,7 @@
   .home {
     margin-top: 2.5rem;
     h1 {
-      font-size: 18vw;
+      font-size: 17vw;
       line-height: 18vw;
       flex-direction: column;
       display: inline-block;
