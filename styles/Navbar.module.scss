@@ -36,11 +36,6 @@
       text-transform: uppercase;
       position: relative;
       cursor: pointer;
-      &:hover {
-        animation: 0.3s ease-in 1s 2 reverse both paused navlinkHover;
-        animation: navlinkHover 0.3s linear 1s;
-        animation: navlinkHover 0.3s;
-      }
       .tick {
         position: absolute;
         visibility: hidden;
@@ -59,17 +54,20 @@
   aside {
     align-self: center;
     position: relative;
+    opacity: 30%;
     img {
       z-index: 1;
-      opacity: 30%;
     }
     .background__glow {
-      // z-index: -1;
-      // position: absolute;
-      // width: 139px;
-      // height: 139px;
-      // background: #8e2a77;
-      // filter: blur(147px);
+      z-index: -1;
+      position: absolute;
+      width: 224px;
+      height: 224px;
+      border-radius: 50%;
+      background: #4f2c47;
+      top: 3.75rem;
+      left: 0.5rem;
+      filter: blur(90px);
     }
   }
 }

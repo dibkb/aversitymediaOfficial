@@ -1,4 +1,5 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
+import { motion } from "framer-motion";
 // import images
 import UIUX from "../../../public/assets/UIUX.svg";
 import UIUXHover from "../../../public/assets/UIUX-hover.svg";
@@ -6,6 +7,10 @@ import Dev from "../../../public/assets/Dev.svg";
 import DevHover from "../../../public/assets/Dev-hover.svg";
 import styles from "../../../styles/EstimateCost.module.scss";
 import FormContext from "../../../context/context";
+import {
+  workDesignContainer,
+  workDevContainer,
+} from "../../../public/animation";
 const Work: React.FC = () => {
   const formContext = useContext(FormContext);
   const [uiuxActive, setUiUxActive] = useState<boolean>(false);
@@ -34,22 +39,50 @@ const Work: React.FC = () => {
           className={uiuxActive ? styles["--active"] : ""}
           onClick={selectUi}
         >
-          <div className={styles["image-Container"]}>
+          <motion.div
+            variants={workDesignContainer}
+            animate="static"
+            whileHover="hover"
+            whileTap="click"
+            className={styles["image-Container"]}
+          >
             <img
               src={uiuxActive ? UIUXHover.src : UIUX.src}
               alt="uiux-normal"
             />
-          </div>
-          <pre>UI/UX Design</pre>
+          </motion.div>
+          <motion.pre
+            animate={
+              uiuxActive
+                ? workDesignContainer.textActive
+                : workDesignContainer.textNormal
+            }
+          >
+            UI/UX Design
+          </motion.pre>
         </section>
         <section
           className={devActive ? styles["--active"] : ""}
           onClick={selectDev}
         >
-          <div className={styles["image-Container"]}>
+          <motion.div
+            animate="static"
+            variants={workDevContainer}
+            whileHover="hover"
+            whileTap="click"
+            className={styles["image-Container"]}
+          >
             <img src={devActive ? DevHover.src : Dev.src} alt="dev-normal" />
-          </div>
-          <pre>UI/UX and Development</pre>
+          </motion.div>
+          <motion.pre
+            animate={
+              devActive
+                ? workDevContainer.textActive
+                : workDevContainer.textNormal
+            }
+          >
+            UI/UX and Development
+          </motion.pre>
         </section>
       </main>
       <a href="#" className={styles["know-more-link"]}>

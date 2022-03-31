@@ -10,6 +10,11 @@ import { MenuIcon, MenuIconActive } from "../../public/svg/Icons";
 import astranaut from "../../public/assets/astronaut.svg";
 // scss------------
 import styles from "../../styles/Navbar.module.scss";
+import { motion } from "framer-motion";
+import {
+  hamburgerContainer,
+  navbarAstronautContainer,
+} from "../../public/animation";
 interface Props {
   showNav: Boolean;
   setShowNav: (value: any) => void;
@@ -29,23 +34,30 @@ const Navbar: React.FC<Props> = ({ showNav, setShowNav }) => {
         <span className={styles.logo}>
           <AversityMediaLogo />
         </span>
-        <span className={styles.hamburger} onClick={navbarTogle}>
+        <motion.span
+          className={styles.hamburger}
+          onClick={navbarTogle}
+          whileHover="hover"
+          whileTap="click"
+          animate="normal"
+          variants={hamburgerContainer}
+        >
           {showNav ? <MenuIconActive /> : <MenuIcon />}
-        </span>
+        </motion.span>
       </div>
       {showNav && (
         <div className={styles["navbar__body"]}>
           <main>
             <NavLinkContainer setShowNav={setShowNav} pageUrl={pageUrl} />
           </main>
-          <aside>
+          <motion.aside animate="animation" variants={navbarAstronautContainer}>
             <div className={styles["background__glow"]}></div>
             <img
-              src={astranaut.src}
               alt="astronaut"
+              src={astranaut.src}
               className={styles["astronaut"]}
             />
-          </aside>
+          </motion.aside>
         </div>
       )}
     </div>

@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 // scss------------
 import styles from "../../styles/Navbar.module.scss";
 import { Tick } from "../../public/assets/Icons";
 import { NavLinkContainerProps } from "../../types/Types";
 import { navLinks } from "./navLinkInfo";
+import { motion } from "framer-motion";
+import {
+  navbarAstronautContainer,
+  navLinkContainer,
+} from "../../public/animation";
 const NavLinkContainer: React.FC<NavLinkContainerProps> = ({
   setShowNav,
   pageUrl,
@@ -18,7 +23,9 @@ const NavLinkContainer: React.FC<NavLinkContainerProps> = ({
             href={`/${nav.urlEndPoint}`}
             passHref
           >
-            <div
+            <motion.div
+              whileHover="hover"
+              variants={navLinkContainer}
               className={`${
                 pageUrl === nav.urlEndPoint ? styles["active"] : null
               }`}
@@ -27,7 +34,7 @@ const NavLinkContainer: React.FC<NavLinkContainerProps> = ({
               <span className={styles["tick"]}>
                 <Tick />
               </span>
-            </div>
+            </motion.div>
           </Link>
         );
       })}

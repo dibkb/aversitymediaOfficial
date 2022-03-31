@@ -6,6 +6,8 @@ import CtaText from "../src/components/CtaText";
 import Typewriter from "typewriter-effect";
 // scss import-----------------------
 import styles from "../styles/Home.module.scss";
+import { motion } from "framer-motion";
+import { astronautContainer } from "../public/animation";
 const Home: React.FC = () => {
   return (
     <div className={styles["home"]}>
@@ -35,14 +37,14 @@ const Home: React.FC = () => {
             Work with us to scale your business&apos;s online presence to the
             next level : &#41;
           </p>
-          <aside>
+          <motion.aside animate="animation" variants={astronautContainer}>
             <div className={styles["background__glow"]}></div>
             <img
               src={astranaut.src}
               alt="astronaut"
               className={styles["astronaut"]}
             />
-          </aside>
+          </motion.aside>
         </body>
         <footer>
           <CtaText arrow={true} tick={true} text="Let's Get Started" />
