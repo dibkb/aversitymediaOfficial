@@ -28,19 +28,21 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const formContext = useContext(FormContext);
   // ================ Input =====================
   const [nameInput, setNameInput] = useState<string>(
-    formContext.formValue.contact["name"] !== null
-      ? formContext.formValue.contact["name"]
+    formContext!.formValue!.contact["name"] !== null
+      ? formContext!.formValue!.contact["name"]
       : ""
   );
   const [emailInput, setEmailInput] = useState<string>(
-    formContext.formValue.contact["email"] !== null
-      ? formContext.formValue.contact["email"]
+    formContext!.formValue!.contact["email"] !== null
+      ? formContext!.formValue!.contact["email"]
       : ""
   );
   const [numberInput, setNumberInput] = useState<number>(
-    formContext.formValue.contact["number"] !== null
-      ? formContext.formValue.contact["number"]
-      : ""
+    Number(
+      formContext!.formValue!.contact["number"] !== null
+        ? formContext!.formValue!.contact["number"]
+        : ""
+    )
   );
   return (
     <div className={styles["contactFormContainer"]}>

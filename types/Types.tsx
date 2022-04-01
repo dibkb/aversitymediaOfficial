@@ -10,6 +10,10 @@ export interface NavLinkContainerProps {
   setShowNav: (value: boolean) => void;
   pageUrl: string;
 }
+export const WORK = {
+  DESIGN: "DESIGN",
+  DESIGN_AND_DEV: "DESIGN_AND_DEV",
+};
 export interface CtaTextProps {
   link: string | undefined | null;
   arrow: boolean;
@@ -43,8 +47,9 @@ export type budgetInfoType = {
   price: string;
 }[];
 export type formContext = {
-  work: "designOnly | designAndDev" | null;
-  budget: formBudget | null;
+  // work: "designOnly | designAndDev";
+  work: string;
+  budget: formBudget;
   contact: {
     name: string | null;
     email: string | null;
@@ -52,6 +57,6 @@ export type formContext = {
   };
 };
 export type formContextRoot = {
-  formValue: formContext | null;
-  setFormValue: () => void | null;
+  formValue: formContext;
+  setFormValue: (input: formContext) => void;
 };

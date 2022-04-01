@@ -1,7 +1,7 @@
 import React from "react";
 import { formContext, formContextRoot } from "../types/Types";
 export const formDefaultContext: formContext = {
-  work: null,
+  work: "",
   budget: null,
   contact: {
     name: null,
@@ -9,5 +9,5 @@ export const formDefaultContext: formContext = {
     number: null,
   },
 };
-const FormContext = React.createContext({});
+const FormContext = React.createContext<formContextRoot | null>(null);
 export default FormContext;
