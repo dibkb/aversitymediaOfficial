@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 // image import ------------
 import astranaut from "../public/assets/astronaut.svg";
 import CtaText from "../src/components/CtaText";
@@ -9,9 +9,24 @@ import styles from "../styles/Home.module.scss";
 import { motion } from "framer-motion";
 import { astronautContainer } from "../public/animation";
 const Home: React.FC = () => {
+  const headingref = useRef<HTMLHeadingElement>(null);
+  const [headingheight, setHeadingHeight] = useState<number | null>(null);
+  useEffect(() => {
+    if (headingref.current) {
+      setHeadingHeight(headingref.current?.clientHeight);
+      headingref.current.style.display = "none";
+    }
+  }, [headingref, setHeadingHeight]);
   return (
     <div className={styles["home"]}>
-      <h1>
+      <h1
+        style={{
+          position: "relative",
+          width: "100%",
+          display: "block",
+          minHeight: `${headingheight}px`,
+        }}
+      >
         <Typewriter
           options={{ loop: true, deleteSpeed: 3 }}
           onInit={(typewriter) => {
@@ -31,6 +46,9 @@ const Home: React.FC = () => {
           }}
         />
       </h1>
+      <h1 ref={headingref}>
+        We deliver premium webapps at an affordable rate.
+      </h1>
       <main>
         <body>
           <p>
@@ -48,6 +66,7 @@ const Home: React.FC = () => {
         </body>
         <footer>
           <CtaText
+            link={null}
             animateTick={true}
             arrow={true}
             tick={true}

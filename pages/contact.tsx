@@ -13,7 +13,7 @@ const contact: React.FC = () => {
     >
       <section>
         <h2>Address</h2>
-        <p>Niz-Kadamoni boiragimoth</p>
+        <p>boiragimoth</p>
         <p>DIbrugarh,assam</p>
       </section>
       <section>
