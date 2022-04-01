@@ -68,6 +68,7 @@ const GetStartedFooter: React.FC<GetStartedFooterProps> = ({
           }
         >
           <CtaText
+            link={null}
             animateTick={validateSubmit}
             arrow={false}
             tick={true}
