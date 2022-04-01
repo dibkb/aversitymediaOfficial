@@ -14,8 +14,12 @@ import {
 } from "../../../public/animation";
 const Work: React.FC = () => {
   const formContext = useContext(FormContext);
-  const [uiuxActive, setUiUxActive] = useState<boolean>(false);
-  const [devActive, setDevActive] = useState<boolean>(false);
+  const [uiuxActive, setUiUxActive] = useState<boolean>(
+    formContext.formValue.work === "designOnly" ? true : false
+  );
+  const [devActive, setDevActive] = useState<boolean>(
+    formContext.formValue.work === "designAndDev" ? true : false
+  );
   const selectUi = useCallback(() => {
     setUiUxActive(true);
     setDevActive(false);

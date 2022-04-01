@@ -12,7 +12,10 @@ import { checkBox, warningSign } from "../../../public/animation";
 export const Budget: React.FC = () => {
   const formContext: any = useContext(FormContext);
   const [budgetInfo, setBudgetInfo] = useState<budgetInfoType>();
-  const [budget, setBudget] = useState<formBudget>();
+  const [budget, setBudget] = useState<formBudget>(
+    formContext.formValue.budget
+  );
+  console.log(formContext);
   useEffect(() => {
     if (formContext.formValue.work === "designOnly") {
       setBudgetInfo(budgetInfoDesign);

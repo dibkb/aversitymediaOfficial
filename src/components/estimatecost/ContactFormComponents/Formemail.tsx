@@ -8,15 +8,15 @@ import styles from "../../../../styles/ContactForm.module.scss";
 import { emailInputProp } from "../../../../types/Types";
 import { validateEmail } from "../../../../utils/utils";
 const Formemail: React.FC<emailInputProp> = ({
+  emailError,
   emailInput,
   setEmailError,
   setEmailInput,
 }) => {
-  const [state, setState] = useState<"normal" | "focus" | "error">("normal");
+  const [state, setState] = useState<"normal" | "focus">("normal");
   const formContext: any = useContext(FormContext);
   useEffect(() => {
     if (emailInput.length > 0 && !validateEmail(emailInput)) {
-      setState("error");
       setEmailError(true);
     } else if (emailInput.length !== 0) {
       setState("focus");
@@ -35,29 +35,19 @@ const Formemail: React.FC<emailInputProp> = ({
       },
     });
   }, [emailInput]);
-  const onFocus = useCallback(() => {
-    if (state !== "error") {
-      setState("focus");
-    }
-  }, [state]);
-  const onBlur = useCallback(() => {
-    if (state !== "error") {
-      setState("normal");
-    }
-  }, [state]);
   return (
     <motion.div
       variants={textBox}
       animate={state === "focus" ? "hover" : ""}
-      className={styles[`formContainer---${state}`]}
+      className={styles[`formContainer---${emailError ? "error" : state}`]}
     >
       <div className={styles["label"]}>
         <span className={styles["icon"]}>
-          <Email fill={state === "error" ? "#E02828" : null} />
+          <Email fill={emailError ? "#E02828" : null} />
           <pre className={styles["label-text"]}>Email</pre>
         </span>
         <span className={styles["warning"]}>
-          <WarningRound fill={state === "error" ? "#E02828" : "#ffffff"} />
+          <WarningRound fill={emailError ? "#E02828" : "#ffffff"} />
         </span>
       </div>
       <div className={styles["input"]}>
@@ -66,8 +56,8 @@ const Formemail: React.FC<emailInputProp> = ({
           placeholder="johndoe@mail.com"
           value={emailInput}
           onChange={(e) => setEmailInput(e.target.value)}
-          onFocus={onFocus}
-          onBlur={onBlur}
+          onFocus={() => setState("focus")}
+          onBlur={() => setState("normal")}
         />
       </div>
     </motion.div>

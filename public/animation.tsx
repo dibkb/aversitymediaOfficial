@@ -249,4 +249,10 @@ export const ctaText = {
       yoyo: Infinity,
     },
   },
+  textHover: {
+    scale: 1.1,
+  },
+  textNormal: {
+    scale: 1,
+  },
 };

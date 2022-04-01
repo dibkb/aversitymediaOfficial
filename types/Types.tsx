@@ -21,16 +21,19 @@ export interface IconProp {
   fill: string | null;
 }
 export interface nameInputProp {
+  nameError: boolean;
   nameInput: string;
   setNameInput: (input: string) => void;
   setNameError: (input: boolean) => void;
 }
 export interface emailInputProp {
+  emailError: boolean;
   emailInput: string;
   setEmailInput: (input: string) => void;
   setEmailError: (input: boolean) => void;
 }
 export interface numberInputProp {
+  numberError: boolean;
   numberInput: number | undefined;
   setNumberInput: (input: number) => void;
   setNumberError: (input: boolean) => void;

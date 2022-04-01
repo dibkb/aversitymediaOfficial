@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React, { createContext, useContext, useState } from "react";
+import FormContext from "../../../context/context";
 import { warningText } from "../../../public/animation";
 import { Lock } from "../../../public/svg/Icons";
 // ------------styles-----------
@@ -24,10 +25,23 @@ const ContactForm: React.FC<ContactFormProps> = ({
   setEmailError,
   setNumberError,
 }) => {
+  const formContext = useContext(FormContext);
   // ================ Input =====================
-  const [nameInput, setNameInput] = useState<string>("");
-  const [emailInput, setEmailInput] = useState<string>("");
-  const [numberInput, setNumberInput] = useState<number>();
+  const [nameInput, setNameInput] = useState<string>(
+    formContext.formValue.contact["name"] !== null
+      ? formContext.formValue.contact["name"]
+      : ""
+  );
+  const [emailInput, setEmailInput] = useState<string>(
+    formContext.formValue.contact["email"] !== null
+      ? formContext.formValue.contact["email"]
+      : ""
+  );
+  const [numberInput, setNumberInput] = useState<number>(
+    formContext.formValue.contact["number"] !== null
+      ? formContext.formValue.contact["number"]
+      : ""
+  );
   return (
     <div className={styles["contactFormContainer"]}>
       <h1>My Contact info</h1>
@@ -36,16 +50,19 @@ const ContactForm: React.FC<ContactFormProps> = ({
           nameInput={nameInput}
           setNameInput={setNameInput}
           setNameError={setNameError}
+          nameError={nameError}
         />
         <Formemail
           emailInput={emailInput}
           setEmailError={setEmailError}
           setEmailInput={setEmailInput}
+          emailError={emailError}
         />
         <Fornumber
           numberInput={numberInput}
           setNumberInput={setNumberInput}
           setNumberError={setNumberError}
+          numberError={numberError}
         />
         <Contactdirectly />
       </main>
