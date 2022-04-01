@@ -1,0 +1,79 @@
+@import "fonts";
+.error__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+  min-height: auto;
+  padding-bottom: 3rem;
+  user-select: none;
+  h3 {
+    @include headingNormal;
+    font-size: 2.25rem;
+    font-weight: 500;
+    line-height: 55px;
+  }
+  section {
+    width: 100%;
+    margin-top: 3rem;
+  }
+  div:not(:nth-child(2)) {
+    width: 100%;
+    margin-bottom: 2rem;
+    p {
+      @include fontBody;
+      width: 100%;
+      text-align: center;
+      font-weight: 400;
+    }
+  }
+  div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      @include fontBody;
+      font-weight: 400;
+      margin-right: 0.5rem;
+    }
+  }
+  .monster {
+    max-width: 500px;
+    margin: 3rem 0;
+  }
+  .home {
+    @include fontBody;
+    max-width: fit-content;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: $formPrivacymessage;
+    cursor: pointer;
+    &:hover {
+      color: $text-heading;
+    }
+  }
+}
+@media (max-width: 700px) {
+  .error__container {
+    h3 {
+      font-size: 7vw;
+    }
+    .emojiDiv {
+      flex-direction: column;
+      text-align: center;
+      p {
+        line-height: 2rem;
+      }
+      .emoji {
+        margin-top: 1rem;
+      }
+    }
+    .monster {
+      margin: 3rem 0;
+      max-width: 100%;
+    }
+  }
+}

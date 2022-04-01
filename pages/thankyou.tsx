@@ -30,7 +30,7 @@ const thankyou: React.FC = () => {
         alt="astro-ape"
         className={styles["ape"]}
       />
-      <Link href={"/"}>
+      <Link href={"/"} passHref>
         <motion.a
           animate="animate"
           whileHover={"hover"}

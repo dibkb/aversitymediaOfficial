@@ -25,6 +25,16 @@ export const body = {
       stiffness: 100,
     },
   },
+  services: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.1,
+      duration: 0.369,
+      type: "spring",
+      stiffness: 50,
+    },
+  },
 };
 export const workDesignContainer = {
   static: {
@@ -274,6 +284,18 @@ export const astroApeAnimation = {
     rotate: [0, 6],
     transition: {
       duration: 4.5,
+      yoyo: Infinity,
+    },
+  },
+};
+export const errorMonsterAnimation = {
+  animation: {
+    scale: [1.09, 1],
+    rotate: [-3, 9],
+    y: [-1, 3],
+    x: [-108, 96],
+    transition: {
+      duration: 9,
       yoyo: Infinity,
     },
   },

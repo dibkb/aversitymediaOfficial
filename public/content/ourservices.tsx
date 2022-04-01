@@ -1,0 +1,18 @@
+export const ourServices = {
+  design: [
+    "Volutpat enim posuere adipiscing sociis morbi urna id. Quis elementum neque, nisi senectus lacus id magna faucibus. Congue aliquam adipiscing quis enim. Id vivamus convallis donec et, pharetra neque. Tellus non tellus tellus nunc sit morbi egestas leo. Aenean in urna, in ut posuere aliquam placerat.",
+    // =================================== paragraph change============================
+    "Dignissim senectus massa lorem venenatis, nisi vitae ornare duis sapien. Nunc, nisi, faucibus ipsum semper posuere morbi viverra. Magna massa id vel malesuada gravida lectus netus viverra fermentum. Neque vestibulum sit elementum sit arcu morbi fringilla. Et montes, vel hac sagittis mattis cras. Diam vel eget molestie iaculis volutpat pretium neque maecenas varius. Suspendisse vitae sagittis arcu amet, montes, egestas semper id. Arcu lectus massa lacus at magnis ut arcu vitae, cras. Ipsum, feugiat enim, at nullam mi proin. Adipiscing urna facilisi dui pharetra faucibus viverra viverra integer orci. Arcu, sapien tortor ut odio fermentum sit.",
+    //===================================== paragraph change =======================
+    "Eget libero egestas ullamcorper id bibendum gravida mattis. Curabitur lectus tincidunt tortor et amet quis congue neque. Urna proin malesuada facilisi viverra. Egestas pharetra, ullamcorper in cursus lobortis ornare donec. Mollis sit a metus, tincidunt amet at. Urna sem risus bibendum quisque quis vulputate diam. Ipsum dui turpis sem dictum maecenas ultricies volutpat sit sed. Sed arcu commodo egestas risus elementum duis sed. Suspendisse adipiscing et, nunc, id ut tempor dignissim potenti.",
+  ],
+  development: [
+    "Tincidunt augue lectus tortor, donec dolor. Urna condimentum feugiat egestas quam. Sed aliquam lacus, aliquet ut pretium sapien. Amet, ac viverra nullam mi in at. Est proin sed nunc nec morbi vel imperdiet eget quisque. Lectus orci neque, sed in id lectus nisi sagittis. Ac nisl volutpat sodales ornare aenean. Vulputate vel mattis integer ut turpis nibh dignissim morbi.",
+    // =================================== paragraph change============================
+    "Neque nec, elit tellus massa nisl. Pulvinar orci, fermentum ipsum habitasse laoreet. Duis nulla id maecenas justo. Et id scelerisque eleifend morbi ut malesuada aliquam justo. Vulputate purus massa pharetra vitae donec. Fames amet diam tellus feugiat. Purus maecenas sed fermentum mauris et eu. Sit maecenas nulla tempor nunc tellus. Aliquam fermentum sagittis sit platea enim laoreet.",
+    //===================================== paragraph change =======================
+    "Vel nunc porttitor ut consectetur tortor. Vel diam faucibus sodales tortor, potenti ut posuere ut proin. At viverra a tellus consequat, dignissim bibendum. Porttitor eu imperdiet sit facilisis ullamcorper. Vestibulum lorem tempus, adipiscing est aliquet. In quisque consequat proin pharetra, viverra dolor donec auctor sapien. Adipiscing velit duis quis placerat molestie elementum dictum feugiat. Risus viverra eleifend volutpat adipiscing. Sed cursus sem fusce vitae. Platea urna mi at et quis.",
+    //===================================== paragraph change =======================
+    "Mauris, amet porttitor placerat volutpat id fames integer. Sed pellentesque aliquam mi consectetur gravida sit et, eget. Vitae accumsan elit, tellus metus, massa mauris. Dictum viverra a, nec tristique pharetra faucibus. Tortor adipiscing sed nisi mauris elementum. Nulla at eu magnis enim, praesent placerat ut vehicula viverra. Orci imperdiet tellus ipsum fermentum egestas. Vitae lectus magna netus leo leo enim placerat rhoncus. Mi senectus bibendum viverra in.",
+  ],
+};
