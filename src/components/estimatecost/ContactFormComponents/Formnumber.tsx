@@ -58,8 +58,6 @@ const Fornumber: React.FC<numberInputProp> = ({
       variants={textBox}
       animate={state === "focus" ? "hover" : ""}
       className={styles[`formContainer---${state}`]}
-      onMouseOver={onFocus}
-      onMouseOut={onBlur}
     >
       <div className={styles["label"]}>
         <span className={styles["icon"]}>
