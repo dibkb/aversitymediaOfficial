@@ -256,3 +256,25 @@ export const ctaText = {
     scale: 1,
   },
 };
+export const loveEmojiAnim = {
+  animation: {
+    scale: [1.05, 1],
+    y: [-4, 0],
+    rotate: [0, 6],
+    transition: {
+      duration: 0.369,
+      yoyo: Infinity,
+    },
+  },
+};
+export const astroApeAnimation = {
+  animation: {
+    scale: [1.02, 1],
+    y: [-4, 0],
+    rotate: [0, 6],
+    transition: {
+      duration: 4.5,
+      yoyo: Infinity,
+    },
+  },
+};
