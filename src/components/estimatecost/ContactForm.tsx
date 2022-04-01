@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import React, { createContext, useContext, useState } from "react";
+import { warningText } from "../../../public/animation";
 import { Lock } from "../../../public/svg/Icons";
 // ------------styles-----------
 import styles from "../../../styles/ContactForm.module.scss";
@@ -48,15 +50,27 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <Contactdirectly />
       </main>
       <div className={styles["caution-container"]}>
-        <pre className={nameError ? styles["visible"] : styles["invisible"]}>
+        <motion.pre
+          animate="animate"
+          variants={warningText}
+          className={nameError ? styles["visible"] : styles["invisible"]}
+        >
           “{nameInput}” dosen&apos;t look like a VALID name.
-        </pre>
-        <pre className={emailError ? styles["visible"] : styles["invisible"]}>
+        </motion.pre>
+        <motion.pre
+          animate="animate"
+          variants={warningText}
+          className={emailError ? styles["visible"] : styles["invisible"]}
+        >
           “{emailInput}” is not a VALID email address.
-        </pre>
-        <pre className={numberError ? styles["visible"] : styles["invisible"]}>
+        </motion.pre>
+        <motion.pre
+          animate="animate"
+          variants={warningText}
+          className={numberError ? styles["visible"] : styles["invisible"]}
+        >
           “{numberInput}” is not a VALID phone number.
-        </pre>
+        </motion.pre>
       </div>
       <div className={styles["privacy-assurance"]}>
         <Lock />

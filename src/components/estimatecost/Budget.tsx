@@ -7,6 +7,8 @@ import { CheckBoxEmpty, CheckBoxTick } from "../CheckBoxes";
 import { budgetInfoDesign, budgetInfoDesignAndDev } from "./Budgetinfo";
 import FormContext from "../../../context/context";
 import { formContextRoot } from "../../../types/Types";
+import { motion } from "framer-motion";
+import { checkBox, warningSign } from "../../../public/animation";
 export const Budget: React.FC = () => {
   const formContext: any = useContext(FormContext);
   const [budgetInfo, setBudgetInfo] = useState<budgetInfoType>();
@@ -34,10 +36,20 @@ export const Budget: React.FC = () => {
           budgetInfo.map((item) => {
             return (
               <div key={item.id} onClick={() => selectBudgetHandler(item.id)}>
-                <span>
+                <motion.span
+                  animate={"static"}
+                  whileHover={"hover"}
+                  whileTap={"click"}
+                  variants={checkBox}
+                >
                   {budget === item.id ? <CheckBoxTick /> : <CheckBoxEmpty />}
-                </span>
-                <pre>{item.price}</pre>
+                </motion.span>
+                <motion.pre
+                  animate={budget === item.id ? "textActive" : "textNormal"}
+                  variants={checkBox}
+                >
+                  {item.price}
+                </motion.pre>
               </div>
             );
           })}
@@ -49,9 +61,9 @@ export const Budget: React.FC = () => {
             : styles["caution"]
         }
       >
-        <pre>
+        <motion.pre animate="animate" variants={warningSign}>
           <Warning />
-        </pre>
+        </motion.pre>
         <p>Hosting Price and Domain Price is not included.</p>
       </div>
     </div>

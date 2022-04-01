@@ -1,9 +1,16 @@
+import { motion } from "framer-motion";
 import React from "react";
+import { body } from "../public/animation";
 import { InstagramIcon } from "../public/svg/Icons";
 import styles from "../styles/Contact.module.scss";
 const contact: React.FC = () => {
   return (
-    <div className={styles["contactContainer"]}>
+    <motion.div
+      initial="initial"
+      animate="animate"
+      variants={body}
+      className={styles["contactContainer"]}
+    >
       <section>
         <h2>Address</h2>
         <p>Niz-Kadamoni boiragimoth</p>
@@ -31,7 +38,7 @@ const contact: React.FC = () => {
           <InstagramIcon />
         </a>
       </section>
-    </div>
+    </motion.div>
   );
 };
 

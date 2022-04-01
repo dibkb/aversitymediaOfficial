@@ -13,6 +13,7 @@ import styles from "../../styles/Navbar.module.scss";
 import { motion } from "framer-motion";
 import {
   hamburgerContainer,
+  navbar,
   navbarAstronautContainer,
 } from "../../public/animation";
 interface Props {
@@ -46,7 +47,12 @@ const Navbar: React.FC<Props> = ({ showNav, setShowNav }) => {
         </motion.span>
       </div>
       {showNav && (
-        <div className={styles["navbar__body"]}>
+        <motion.div
+          initial={"initial"}
+          animate={"animate"}
+          variants={navbar}
+          className={styles["navbar__body"]}
+        >
           <main>
             <NavLinkContainer setShowNav={setShowNav} pageUrl={pageUrl} />
           </main>
@@ -58,7 +64,7 @@ const Navbar: React.FC<Props> = ({ showNav, setShowNav }) => {
               className={styles["astronaut"]}
             />
           </motion.aside>
-        </div>
+        </motion.div>
       )}
     </div>
   );

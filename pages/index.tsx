@@ -47,7 +47,12 @@ const Home: React.FC = () => {
           </motion.aside>
         </body>
         <footer>
-          <CtaText arrow={true} tick={true} text="Let's Get Started" />
+          <CtaText
+            animateTick={true}
+            arrow={true}
+            tick={true}
+            text="Let's Get Started"
+          />
         </footer>
       </main>
     </div>

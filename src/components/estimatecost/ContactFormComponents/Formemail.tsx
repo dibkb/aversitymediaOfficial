@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import FormContext from "../../../../context/context";
+import { textBox } from "../../../../public/animation";
 import { Email, WarningRound } from "../../../../public/svg/Icons";
 // styles-------------
 import styles from "../../../../styles/ContactForm.module.scss";
@@ -44,7 +46,11 @@ const Formemail: React.FC<emailInputProp> = ({
     }
   }, [state]);
   return (
-    <div className={styles[`formContainer---${state}`]}>
+    <motion.div
+      variants={textBox}
+      animate={state === "focus" ? "hover" : ""}
+      className={styles[`formContainer---${state}`]}
+    >
       <div className={styles["label"]}>
         <span className={styles["icon"]}>
           <Email fill={state === "error" ? "#E02828" : null} />
@@ -64,7 +70,7 @@ const Formemail: React.FC<emailInputProp> = ({
           onBlur={onBlur}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

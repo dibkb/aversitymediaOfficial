@@ -11,9 +11,11 @@ export interface NavLinkContainerProps {
   pageUrl: string;
 }
 export interface CtaTextProps {
+  link: string | undefined | null;
   arrow: boolean;
   tick: boolean;
   text: string;
+  animateTick: boolean;
 }
 export interface IconProp {
   fill: string | null;

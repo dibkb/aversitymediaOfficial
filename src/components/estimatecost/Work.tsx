@@ -8,6 +8,7 @@ import DevHover from "../../../public/assets/Dev-hover.svg";
 import styles from "../../../styles/EstimateCost.module.scss";
 import FormContext from "../../../context/context";
 import {
+  infoText,
   workDesignContainer,
   workDevContainer,
 } from "../../../public/animation";
@@ -85,9 +86,14 @@ const Work: React.FC = () => {
           </motion.pre>
         </section>
       </main>
-      <a href="#" className={styles["know-more-link"]}>
+      <motion.a
+        href="#"
+        whileHover={"hover"}
+        variants={infoText}
+        className={styles["know-more-link"]}
+      >
         Know about our services in detail
-      </a>
+      </motion.a>
     </div>
   );
 };

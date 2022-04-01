@@ -4,6 +4,8 @@ import RoundButton from "../roundButton";
 import styles from "../../../styles/EstimateCost.module.scss";
 import { formContext } from "../../../types/Types";
 import { sliderValue } from "../../../pages/getstarted";
+import { motion } from "framer-motion";
+import { infoText } from "../../../public/animation";
 export type GetStartedFooterProps = {
   formValue: formContext;
   slider: sliderValue;
@@ -44,9 +46,16 @@ const GetStartedFooter: React.FC<GetStartedFooterProps> = ({
   return (
     <footer>
       {slider !== 0 && (
-        <a href="#" className={styles["back-button"]} onClick={decrementSlide}>
+        <motion.a
+          animate="animate"
+          whileHover={"hover"}
+          variants={infoText}
+          href="#"
+          className={styles["back-button"]}
+          onClick={decrementSlide}
+        >
           Go Back
-        </a>
+        </motion.a>
       )}
       {slider === 0 && <span className={styles["buffer"]}>buffer</span>}
       {/* ================== next button =================== */}
@@ -58,7 +67,12 @@ const GetStartedFooter: React.FC<GetStartedFooterProps> = ({
               : styles["submit-container--disable"]
           }
         >
-          <CtaText arrow={false} tick={true} text="Submit Response" />
+          <CtaText
+            animateTick={validateSubmit}
+            arrow={false}
+            tick={true}
+            text="Submit Response"
+          />
         </div>
       )}
       {slider === 1 && (
@@ -70,7 +84,7 @@ const GetStartedFooter: React.FC<GetStartedFooterProps> = ({
           }
           onClick={incrementSlide}
         >
-          <RoundButton />
+          <RoundButton animateArrow={formValue.budget !== null} />
         </div>
       )}
       {slider === 0 && (
@@ -83,7 +97,7 @@ const GetStartedFooter: React.FC<GetStartedFooterProps> = ({
             }
             onClick={incrementSlide}
           >
-            <RoundButton />
+            <RoundButton animateArrow={formValue.work !== null} />
           </div>
         </>
       )}

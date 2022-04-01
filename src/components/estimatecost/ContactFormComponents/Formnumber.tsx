@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import React, { useCallback, useEffect, useState } from "react";
 import FormContext from "../../../../context/context";
+import { textBox } from "../../../../public/animation";
 import { Whatsapp, WarningRound } from "../../../../public/svg/Icons";
 // styles-------------
 import styles from "../../../../styles/ContactForm.module.scss";
@@ -41,18 +43,20 @@ const Fornumber: React.FC<numberInputProp> = ({
       },
     });
   }, [numberInput]);
-  const onFocus = () => {
+  const onFocus = useCallback(() => {
     if (state !== "error") {
       setState("focus");
     }
-  };
-  const onBlur = () => {
+  }, [state]);
+  const onBlur = useCallback(() => {
     if (state !== "error") {
       setState("normal");
     }
-  };
+  }, [state]);
   return (
-    <div
+    <motion.div
+      variants={textBox}
+      animate={state === "focus" ? "hover" : ""}
       className={styles[`formContainer---${state}`]}
       onMouseOver={onFocus}
       onMouseOut={onBlur}
@@ -77,7 +81,7 @@ const Fornumber: React.FC<numberInputProp> = ({
           onBlur={onBlur}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default Fornumber;

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import styles from "../../styles/roundButton.module.scss";
 import { ArrowNormal, ArrowHover } from "../../public/svg/Arrow";
+import { motion } from "framer-motion";
+import { roundButtonContainerArrow } from "../../public/animation";
 export type RoundButtonProp = {
-  marginBottom: React.CSSProperties | null;
+  // marginBottom: React.CSSProperties | null;
+  animateArrow: boolean;
 };
-const RoundButton: React.FC = () => {
-  const [hovered, setHovered] = useState(false);
+const RoundButton: React.FC<RoundButtonProp> = ({ animateArrow }) => {
+  const [hovered, setHovered] = useState<boolean>(false);
   return (
     <div
       className={styles["roundButton-megaContainer"]}
@@ -21,9 +24,13 @@ const RoundButton: React.FC = () => {
             }
           ></span>
         </div>
-        <span className={styles["arrow"]}>
+        <motion.span
+          animate={animateArrow && "animate"}
+          variants={roundButtonContainerArrow}
+          className={styles["arrow"]}
+        >
           {hovered ? <ArrowHover /> : <ArrowNormal />}
-        </span>
+        </motion.span>
         <span className={styles["arrow-invisible"]}>
           {hovered ? <ArrowHover /> : <ArrowNormal />}
         </span>

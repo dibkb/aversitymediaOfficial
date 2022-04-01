@@ -15,6 +15,9 @@
   footer {
     .back-button {
       @include fontBody;
+      max-width: fit-content;
+      display: flex;
+      margin: 0 auto;
       font-size: 1rem;
       font-weight: 700;
       text-decoration: none;

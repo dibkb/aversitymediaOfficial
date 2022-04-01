@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import React from "react";
+import { body } from "../public/animation";
 import { Guarantee } from "../public/svg/Icons";
 import CtaText from "../src/components/CtaText";
 import styles from "../styles/GetStarted.module.scss";
@@ -6,7 +8,12 @@ const workflow: React.FC = () => {
   return (
     <div className={styles["getStartedContainer"]}>
       <h3>Our Project Workflow</h3>
-      <main className={styles["body"]}>
+      <motion.main
+        initial="initial"
+        animate="animate"
+        variants={body}
+        className={styles["body"]}
+      >
         <section>
           <aside className={styles["left"]}></aside>
           <aside className={styles["right"]}>
@@ -25,10 +32,22 @@ const workflow: React.FC = () => {
             <p className={styles["points"]}>WE will deliver as promised</p>
           </aside>
         </section>
-      </main>
+      </motion.main>
       <footer>
-        <CtaText arrow={true} tick={false} text="Get Started with us" />
-        <CtaText arrow={false} tick={true} text="Contact Us" />
+        <CtaText
+          link=""
+          animateTick={false}
+          arrow={true}
+          tick={false}
+          text="Get Started with us"
+        />
+        <CtaText
+          link={"contact"}
+          animateTick={true}
+          arrow={false}
+          tick={true}
+          text="Contact Us"
+        />
       </footer>
       <div className={styles["tagline"]}>
         <pre>
