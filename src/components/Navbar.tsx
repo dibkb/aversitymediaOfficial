@@ -16,6 +16,7 @@ import {
   navbar,
   navbarAstronautContainer,
 } from "../../public/animation";
+import Head from "next/head";
 interface Props {
   showNav: Boolean;
   setShowNav: (value: any) => void;
@@ -30,43 +31,52 @@ const Navbar: React.FC<Props> = ({ showNav, setShowNav }) => {
     setShowNav((prev: boolean) => !prev);
   };
   return (
-    <div className={styles.navbar}>
-      <div className={styles.header}>
-        <span className={styles.logo}>
-          <AversityMediaLogo />
-        </span>
-        <motion.span
-          className={styles.hamburger}
-          onClick={navbarTogle}
-          whileHover="hover"
-          whileTap="click"
-          animate="normal"
-          variants={hamburgerContainer}
-        >
-          {showNav ? <MenuIconActive /> : <MenuIcon />}
-        </motion.span>
+    <>
+      <Head>
+        <title>AVERSITY Media</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <div className={styles.navbar}>
+        <div className={styles.header}>
+          <span className={styles.logo}>
+            <AversityMediaLogo />
+          </span>
+          <motion.span
+            className={styles.hamburger}
+            onClick={navbarTogle}
+            whileHover="hover"
+            whileTap="click"
+            animate="normal"
+            variants={hamburgerContainer}
+          >
+            {showNav ? <MenuIconActive /> : <MenuIcon />}
+          </motion.span>
+        </div>
+        {showNav && (
+          <motion.div
+            initial={"initial"}
+            animate={"animate"}
+            variants={navbar}
+            className={styles["navbar__body"]}
+          >
+            <main>
+              <NavLinkContainer setShowNav={setShowNav} pageUrl={pageUrl} />
+            </main>
+            <motion.aside
+              animate="animation"
+              variants={navbarAstronautContainer}
+            >
+              <div className={styles["background__glow"]}></div>
+              <img
+                alt="astronaut"
+                src={astranaut.src}
+                className={styles["astronaut"]}
+              />
+            </motion.aside>
+          </motion.div>
+        )}
       </div>
-      {showNav && (
-        <motion.div
-          initial={"initial"}
-          animate={"animate"}
-          variants={navbar}
-          className={styles["navbar__body"]}
-        >
-          <main>
-            <NavLinkContainer setShowNav={setShowNav} pageUrl={pageUrl} />
-          </main>
-          <motion.aside animate="animation" variants={navbarAstronautContainer}>
-            <div className={styles["background__glow"]}></div>
-            <img
-              alt="astronaut"
-              src={astranaut.src}
-              className={styles["astronaut"]}
-            />
-          </motion.aside>
-        </motion.div>
-      )}
-    </div>
+    </>
   );
 };
 
