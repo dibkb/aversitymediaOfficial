@@ -13,8 +13,8 @@ const contact: React.FC = () => {
     >
       <section>
         <h2>Address</h2>
-        <p>boiragimoth</p>
-        <p>DIbrugarh,assam</p>
+        <p>DIbrugarh</p>
+        <p>assam</p>
       </section>
       <section>
         <h2>Contact No</h2>
@@ -27,7 +27,12 @@ const contact: React.FC = () => {
       </section>
       <section>
         <h2>Email</h2>
-        <p className={styles["email"]}>aversitymedia@gmail.com</p>
+        <a
+          href="mailto:aversitymedia@gmail.com?&subject=👋 Hello Aversity Media &body=I am interested in "
+          className={styles["email"]}
+        >
+          aversitymedia@gmail.com
+        </a>
       </section>
       <section>
         <h2>Social</h2>
