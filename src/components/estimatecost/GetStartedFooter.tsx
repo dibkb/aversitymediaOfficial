@@ -6,6 +6,15 @@ import { formContext } from "../../../types/Types";
 import { sliderValue } from "../../../pages/getstarted";
 import { motion } from "framer-motion";
 import { infoText } from "../../../public/animation";
+import {
+  collection,
+  addDoc,
+  serverTimestamp,
+  setDoc,
+  doc,
+} from "firebase/firestore";
+import { db } from "../../../pages/api/firebase-config";
+import Router from "next/router";
 export type GetStartedFooterProps = {
   formValue: formContext;
   slider: sliderValue;
@@ -43,6 +52,21 @@ const GetStartedFooter: React.FC<GetStartedFooterProps> = ({
       setValidateSubmit(false);
     }
   }, [nameError, emailError, numberError, formValue]);
+  console.log(formValue);
+  const submitForm = async () => {
+    const usersCollectionRef = collection(db, "test field");
+    if (validateSubmit) {
+      console.log(usersCollectionRef);
+      const res = await addDoc(usersCollectionRef, {
+        ...formValue,
+        time: serverTimestamp(),
+      });
+      console.log(res);
+      if (res) {
+        Router.push("/thankyou");
+      }
+    }
+  };
   return (
     <footer>
       {slider !== 0 && (
@@ -61,6 +85,7 @@ const GetStartedFooter: React.FC<GetStartedFooterProps> = ({
       {/* ================== next button =================== */}
       {slider === 2 && (
         <div
+          onClick={submitForm}
           className={
             validateSubmit
               ? styles["submit-container"]
@@ -92,7 +117,7 @@ const GetStartedFooter: React.FC<GetStartedFooterProps> = ({
         <>
           <div
             className={
-              formValue.work !== null
+              formValue.work !== ""
                 ? styles["roundButtonContainer"]
                 : styles["roundButtonContainer--disable"]
             }

@@ -38,7 +38,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
       ? formContext!.formValue!.contact["email"]
       : ""
   );
-  console.log(formContext!.formValue!);
   const [numberInput, setNumberInput] = useState<number | "">(
     formContext!.formValue!.contact["number"] !== ""
       ? Number(formContext!.formValue!.contact["number"])
