@@ -1,0 +1,21 @@
+@import "fonts";
+
+.work__container {
+  h1 {
+    @include heading;
+    margin-top: 4rem;
+  }
+  p {
+    @include fontBody;
+    margin-top: 4rem;
+    line-height: 32px;
+  }
+}
+@media (max-width: 600px) {
+  .work__container {
+    h1 {
+      font-size: 16vw;
+      line-height: 18vw;
+    }
+  }
+}
