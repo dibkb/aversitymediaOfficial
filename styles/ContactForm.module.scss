@@ -163,7 +163,6 @@
       flex-direction: column;
       flex-wrap: nowrap;
       row-gap: none;
-      margin-bottom: 0;
     }
   }
   .contactDirectly--container {
@@ -174,16 +173,13 @@
 }
 @media (max-width: 400px) {
   .privacy-assurance {
-    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
     pre {
-      align-self: center;
       margin-top: 1rem;
       text-align: center;
       font-size: 3vw !important;
       margin-bottom: 1rem;
+      width: 100%;
     }
   }
 }
