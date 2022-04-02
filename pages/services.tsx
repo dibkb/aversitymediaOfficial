@@ -32,6 +32,13 @@ const services: React.FC = () => {
       </motion.main>
       <footer>
         <CtaText
+          text="Our Work"
+          link={"/work"}
+          arrow={false}
+          tick={false}
+          animateTick={false}
+        />
+        <CtaText
           text="Get Started with us"
           link={null}
           arrow={true}
