@@ -15,7 +15,6 @@ export const Budget: React.FC = () => {
   const [budget, setBudget] = useState<formBudget>(
     formContext.formValue.budget
   );
-  console.log(formContext);
   useEffect(() => {
     if (formContext.formValue.work === "designOnly") {
       setBudgetInfo(budgetInfoDesign);

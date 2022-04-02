@@ -16,7 +16,7 @@ const Formname: React.FC<nameInputProp> = ({
   const formContext: any = useContext(FormContext);
   const [state, setState] = useState<"normal" | "focus">("normal");
   useEffect(() => {
-    if (nameInput.length > 0 && validateName(nameInput)) {
+    if (nameInput.length > 0 && !validateName(nameInput)) {
       setNameError(true);
     } else if (nameInput.length !== 0) {
       setState("focus");

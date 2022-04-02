@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "@firebase/firestore";
 export const firebaseConfig = {
   authDomain: "aversitymediaofficial.firebaseapp.com",
@@ -12,3 +11,4 @@ export const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+export const COLLECTION = "CONTACT INFO";

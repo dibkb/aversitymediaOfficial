@@ -13,7 +13,7 @@ import {
   setDoc,
   doc,
 } from "firebase/firestore";
-import { db } from "../../../pages/api/firebase-config";
+import { COLLECTION, db } from "../../../pages/api/firebase-config";
 import Router from "next/router";
 export type GetStartedFooterProps = {
   formValue: formContext;
@@ -52,18 +52,17 @@ const GetStartedFooter: React.FC<GetStartedFooterProps> = ({
       setValidateSubmit(false);
     }
   }, [nameError, emailError, numberError, formValue]);
-  console.log(formValue);
   const submitForm = async () => {
-    const usersCollectionRef = collection(db, "test field");
+    const usersCollectionRef = collection(db, COLLECTION);
     if (validateSubmit) {
-      console.log(usersCollectionRef);
       const res = await addDoc(usersCollectionRef, {
         ...formValue,
         time: serverTimestamp(),
       });
-      console.log(res);
       if (res) {
         Router.push("/thankyou");
+      } else {
+        Router.push("/error404");
       }
     }
   };

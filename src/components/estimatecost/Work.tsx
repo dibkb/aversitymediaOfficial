@@ -14,7 +14,6 @@ import {
 } from "../../../public/animation";
 const Work: React.FC = () => {
   const formContext = useContext(FormContext);
-  console.log(formContext?.formValue);
   const [uiuxActive, setUiUxActive] = useState<boolean>(
     formContext!.formValue!.work === "designOnly" ? true : false
   );
