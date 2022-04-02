@@ -53,7 +53,7 @@ export type formContext = {
   contact: {
     name: string | null;
     email: string | null;
-    number: number | null;
+    number: number | "";
   };
 };
 export type formContextRoot = {

@@ -6,7 +6,7 @@ export const formDefaultContext: formContext = {
   contact: {
     name: null,
     email: null,
-    number: null,
+    number: "",
   },
 };
 const FormContext = React.createContext<formContextRoot | null>(null);

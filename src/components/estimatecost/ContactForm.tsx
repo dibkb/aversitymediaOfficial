@@ -17,6 +17,7 @@ export type ContactFormProps = {
   setEmailError: (input: boolean) => void;
   setNumberError: (input: boolean) => void;
 };
+
 const ContactForm: React.FC<ContactFormProps> = ({
   nameError,
   emailError,
@@ -37,12 +38,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
       ? formContext!.formValue!.contact["email"]
       : ""
   );
-  const [numberInput, setNumberInput] = useState<number>(
-    Number(
-      formContext!.formValue!.contact["number"] !== null
-        ? formContext!.formValue!.contact["number"]
-        : ""
-    )
+  console.log(formContext!.formValue!);
+  const [numberInput, setNumberInput] = useState<number | "">(
+    formContext!.formValue!.contact["number"] !== ""
+      ? Number(formContext!.formValue!.contact["number"])
+      : ""
   );
   return (
     <div className={styles["contactFormContainer"]}>
