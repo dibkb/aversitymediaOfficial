@@ -38,7 +38,7 @@ export interface emailInputProp {
 }
 export interface numberInputProp {
   numberError: boolean;
-  numberInput: number | undefined;
+  numberInput: number | "";
   setNumberInput: (input: number) => void;
   setNumberError: (input: boolean) => void;
 }
